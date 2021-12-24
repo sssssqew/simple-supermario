@@ -12,10 +12,8 @@ let isJumping = false // 점프가능 여부
 let isDead = false // 캐릭터 죽음 여부
 let jumpKey = false // 점프키 활성화 여부
 
-// 처음에 isJumping 을 true 로 설정해서 점핑 가능하게 함
-// 점핑 가능하면 계속 점프하다가 vy 가 0 보다 작아지면 isJumping 이 false 가 되면서 더이상 점핑이 불가능함
-// 중력은 계속 작용하니까 중력에 의해서 아래로 내려오다가 limit 에 닿으면 isJumping 이 다시 true 가 되면서 점핑이 가능하게 됨
-
+// 점프하다가 vy 가 jumpHeight 보다 커지면 jumpKey 가 false 가 되면서 더이상 아래로 떨어지지 않고 그라운드(땅)에 정지함
+// 중력은 계속 작용하니까 중력에 의해서 아래로 내려오다가 limitBottom 에 닿으면 isJumping 이 true 가 되면서 점핑이 가능하게 됨
 // 슈퍼 마리오가 limitLeft 값을 넘어가면, 즉, 땅을 벗어나면 죽었으므로 isDead 가 true 가 되고 isDead 가 true 이면 계속 아래로 떨어짐
 
 function down(){
@@ -28,7 +26,7 @@ function down(){
     vy += gravity
     top += vy
 
-    // 점프했다가 그라운드(땅)에 다시 내려오는 순간 그라운드(땅)에 고정시키기
+    // 점프했다가 그라운드(땅)에 다시 내려오는 순간 그라운드(땅)에 정지시키기
     if(vy >= jumpHeight){
         jumpKey = false
     }
@@ -41,7 +39,7 @@ function down(){
 
     console.log('속도', vy)
 
-    // 그라운드(땅)에 고정시키기
+    // 그라운드(땅)에 정지시키기
     if(!isDead && !jumpKey && top >= limitBottom){
         top = limitBottom // 캐릭터 위치 고정하기
         isJumping = true // 점프 활성화
