@@ -6,7 +6,7 @@ const limitLeft = 700 // 낭떠러지 위치
 const jumpHeight = 30 // 점프 높이
 
 
-let vx = 100 // x 방향 속도
+let vx = 20 // x 방향 속도
 let vy = 0 // y 방향 속도
 let isJumping = false // 점프가능 여부
 let isDead = false // 캐릭터 죽음 여부
