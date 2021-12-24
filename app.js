@@ -16,6 +16,8 @@ let jumpKey = false // 점프키 활성화 여부
 // 중력은 계속 작용하니까 중력에 의해서 아래로 내려오다가 limitBottom 에 닿으면 isJumping 이 true 가 되면서 점핑이 가능하게 됨
 // 슈퍼 마리오가 limitLeft 값을 넘어가면, 즉, 땅을 벗어나면 죽었으므로 isDead 가 true 가 되고 isDead 가 true 이면 계속 아래로 떨어짐
 
+// 점프 높이에 영향을 주는 요소 : transition duration, jumpHeight, FPS
+
 function down(){
     // 캐릭터 y 방향 위치 조회
     const topStyle = window.getComputedStyle(box).top
